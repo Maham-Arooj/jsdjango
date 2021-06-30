@@ -1,0 +1,106 @@
+ {% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Crood Shopping Cart Flat Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Crood Shopping Cart Widget Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphgraph Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'main/css/style1.css' %}" rel='stylesheet' type='text/css' />	
+<!-- Custom Theme files -->
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- Custom Theme files -->
+<script type="text/javascript" src= "{% static 'main/js/jquery-1.11.2.min.js' %}"></script>
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.message2').fadeOut('slow', function(c){
+	  		$('.message2').remove();
+		});
+	});	  
+});
+</script>
+</head>
+<body>
+<!--main-->
+	<h1>Crood Shopping Cart</h1>
+   		<div class="mini-cart">
+   			<a href="{% static 'main/#' %}"><img src= "{% static  'main/images/cart.png' %}" alt=""/></a>
+	       <ul class="icon1 sub-icon1 profile_img">
+	       			
+					 <li><a class="active-icon c1" href="{% static 'main/#' %}">Items In Cart </a><div class="rate">3</div>
+						<ul class="sub-icon1 list">
+						  <h3>Recently added items(3)</h3>
+						  <div class="shopping_cart">
+							  <div class="cart_box">
+							   	 <div class="message">
+							   	     <div class="alert-close"> </div> 
+					                <div class="list_img"><img src= "{% static  'main/images/1.jpg' %}" class="img-responsive" alt=""/></div>
+								    <div class="list_desc"><h4><a href="{% static 'main/#' %}">Branded T Shirt</a></h4>1 x<span class="actual">
+		                             $8.00</span></div>
+		                              <div class="clear"></div>
+	                              </div>
+	                            </div>
+	                            <div class="cart_box">
+							   	 <div class="message1">
+							   	     <div class="alert-close1"> </div> 
+					                <div class="list_img"><img src= "{% static  'main/images/2.jpg' %}" class="img-responsive" alt=""/></div>
+								    <div class="list_desc"><h4><a href="{% static 'main/#' %}">Mobile Headphones</a></h4>1 x<span class="actual">
+		                             $4.00</span></div>
+		                              <div class="clear"></div>
+	                              </div>
+	                            </div>
+	                            <div class="cart_box1">
+								  <div class="message2">
+							   	     <div class="alert-close2"> </div> 
+					                <div class="list_img"><img src= "{% static  'main/images/3.jpg' %}" class="img-responsive" alt=""/></div>
+								    <div class="list_desc"><h4><a href="{% static 'main/#' %}">Branded Watch</a></h4>1 x<span class="actual">
+		                             $14.00</span></div>
+		                              <div class="clear"></div>
+	                              </div>
+	                            </div>
+	                        </div>
+	                        <div class="total">
+	                        	<div class="total_left">Cart Subtotal : </div>
+	                        	<div class="total_right">$250.00</div>
+	                        	<div class="clear"> </div>
+	                        </div>
+                            <div class="login_buttons">
+							  <div class="check_button"><a href="{% static 'main/#' %}">Check out</a></div>
+						    </div>
+					      <div class="clear"></div>
+						</ul>
+					 </li>
+		      </ul>
+              <div class="clear"></div>
+          </div>
+	<!--start-copyright-->
+   		<div class="copy-right">
+				<p>Copyright &copy; 2016 Crood Shopping Cart. All Rights Reserved | Design by <a href="{% static 'main/http://w3layouts.com' %}">W3layouts</a></p>
+		</div>
+	<!--//end-copyright-->
+</body>
+</html>

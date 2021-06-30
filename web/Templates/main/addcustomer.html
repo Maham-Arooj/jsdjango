@@ -1,0 +1,24 @@
+{% load static %}
+<head>
+    <title>Jeweler a Fashion Category Bootstrap Responsive Web Template| Home :: w3layouts</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Jeweler Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+       Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+ </head>
+<body>
+<div class="row">
+<div class="col-sm-4">
+<h4 class="text-center alert alert info">Edit Customer Data</h4>
+    <form action="" method="post">
+     {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="save">
+     </form>
+</div>
+</div>
+    
+    
+    </body>
