@@ -1,0 +1,227 @@
+{% load static %}
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Joyas a Jewellery Category  Flat Bootstarp Resposive Website Template | Portfolio :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Joyas Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'main/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{% static 'main/css/style.css' %}" rel='stylesheet' type='text/css' />	
+<script src="{% static 'main/js/jquery-1.11.1.min.js' %}"></script>
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Tangerine:400,700|Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+<script type="text/javascript" src= "{% static 'main/js1/cart.js' %}"> </script>
+<style>
+.topnav-right 
+{
+  float: right;
+  background: #ed0c75;
+  color: #fff
+}
+</style>
+</head>
+<body>
+	<!--start-home-->
+	<div id="home" class="header">
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo">
+					<a href="{% static 'main/index1' %}"><h1>Joya<span>s</span></h1></a>
+				</div>
+				<span class="menu"></span>
+				<div class="top-menu">
+					<ul>
+					<nav>
+						<li><a href="{% url 'index1' %}">Home</a></li> 
+						<li><a href="{% url 'about1' %}">About</a></li>
+						<li><a class="active" href="{% url 'typography' %}">SERVICES</a></li> 
+						<li><a  href="{% url 'main:home' %}">PORTFOLIO</a></li>
+						<li><a href="{% url 'index1' %}">BLOG</a></li>					
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</nav>
+					</ul>
+				</div>
+				<!-- script for menu -->
+				
+				<script>
+				$( "span.menu" ).click(function() {
+				  $( ".top-menu" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<!-- script for menu -->
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+	<div class="banner two">
+		<div class="container">	
+		<div class="bread-crumbs">
+				<ol class="breadcrumb">
+				  <li><a href="{% url 'single' %}">Home</a></li>
+				  <li class="active">Services</li>
+				  <div class="topnav-right">
+    				
+    
+  				</div>
+				</ol>
+				
+		    </div>
+
+
+		</div>   
+	</div>
+	</div>
+</div>
+<!--gallery-->
+	<div class="gallery services">
+		<div class="container">
+				<div class="port-head">
+				   <h3>Typography</h3>
+				   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			  	</div>
+
+				 
+			
+			<div class="portfolio-bottom">
+			
+				<div class="gallery-one two">
+
+					{% for data in data %}
+
+					 <div class="col-md-3 gallery-left two">
+					
+						<img src="{{ data.product_image.url }}"  class="img-responsive zoom-img"/>	
+						
+					 </div>
+					
+					{% endfor %}
+
+				</div>
+			
+			</div>
+					
+					
+		</div>
+		
+	</div>
+	
+<script>
+// Find out the cart items from localStorage
+
+	<!--swipebox -->	
+			<link rel="stylesheet" href="{% static 'main/css/swipebox.css' %}">
+				<script src="{% static 'main/js/jquery.swipebox.min.js' %}"></script> 
+				<script type="text/javascript">
+					jQuery(function($) {
+						$(".swipebox").swipebox();
+					});
+				</script>
+			<!--//swipebox Ends -->
+<!--jewellery-->
+	<div class="j-bottom">
+		<div class="container">
+		       <div class="jewellery-top">
+			    <h3>Flat Discount On !!</h3>
+				   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since, Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+				   <a class="read two" href="{% url 'single' %}">Read More</a>
+			   </div>
+		</div>
+	</div>
+<!--footer-->
+		<div class="footer">
+			<div class="footer-grids">
+					<div class="container">
+					<div class="col-md-3 footer-grid">
+						<h4>Services</h4>
+						<ul>
+							<li><a href="{% url 'single' %}">Contact Customer Service</a></li>
+							<li><a href="{% url 'single'  %}">Free Delivery</a></li>
+							<li><a href="{% url 'single'  %}">View your Wishlist</a></li>
+							<li><a href="{% url 'single'  %}">Ring Size Guide</a></li>
+							<li><a href="{% url 'single'  %}">Returns</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+							<h4>Information</h4>
+						<ul>
+							<li><a href="{% url 'single' %}">Gift certificates</a></li>
+							<li><a href="{% url 'single' %}">Jewellery care guide</a></li>
+							<li><a href="{% url 'single' %}">International customers</a></li>
+							<li><a href="{% url 'single' %}">Wholesale enquires</a></li>
+							<li><a href="{% url 'single' %}">Returns</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>More details</h4>
+						<ul>
+							<li><a href="{% url 'about1'  %}">About us</a></li>
+							<li><a href="{% url 'about1' %}">Privacy Policy</a></li>
+							<li><a href="{% url 'about1' %}">Terms & Condition</a></li>
+							<li><a href="{% url 'about1' %}">Secure payment</a></li>
+							<li><a href="{% url 'contact' %}">Site map</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid contact-grid">
+						<h4>Contact us</h4>
+						<ul>
+
+							<li><span class="c-icon"> </span>Newyork Still Road.</li>
+							<li><span class="c-icon1"> </span><a href="{% static 'main/mailto:info@example.com' %}">mail@example.com</a></li>
+							<li><span class="c-icon2"> </span>756 gt globel Place</li>
+						</ul>
+						<ul class="social-icons">
+							<li><a href="{% static 'https://www.facebook.com/' %}"><span class="facebook"> </span></a></li>
+							<li><a href="{% static 'https://twitter.com/?lang=en' %}"><span class="twitter"> </span></a></li>
+							<li><a href="{% static 'main/#' %}"><span class="thumb"> </span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="copy">
+		              <p>&copy; 2015 All Rights Reserved. Design by <a href="{% static 'main/http://w3layouts.com/' %}">W3layouts</a> </p>
+		            </div>
+			<!--start-smoth-scrolling-->
+			<script type="text/javascript">
+								jQuery(document).ready(function($) {
+									$(".scroll").click(function(event){		
+										event.preventDefault();
+										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+									});
+								});
+						</script>
+							<!--start-smoth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+									});	
+						</script>
+		<a href="{% url 'index1' %}" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>

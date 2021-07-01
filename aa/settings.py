@@ -1,7 +1,5 @@
 import os
 
-
-
 from pathlib import Path
 import web
 
@@ -19,7 +17,7 @@ SECRET_KEY = 'django-insecure-6t)c55+52s!!jq5_#6e4g!0m=y(eftrm&velz5v#0#4o-i8bi8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['joyas-pk.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,13 +124,15 @@ MEDIA_URL ="images/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4',
 
 
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+    ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
