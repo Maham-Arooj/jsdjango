@@ -1,5 +1,7 @@
 import os
-
+import django_heroku
+import dj_database_url
+from decouple import config
 from pathlib import Path
 import web
 
@@ -145,7 +147,7 @@ EMAIL_USE_TLS= True
 EMAIL_HOST_USER= 'maham123arooj@gmail.com'
 EMAIL_HOST_PASSWORD= 'ma00j03'
 
-
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
