@@ -1,8 +1,10 @@
-
-
 import os
+
+
+
 from pathlib import Path
 import web
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,7 +19,7 @@ SECRET_KEY = 'django-insecure-6t)c55+52s!!jq5_#6e4g!0m=y(eftrm&velz5v#0#4o-i8bi8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','joyas-pk.herokuapp.com']
+ALLOWED_HOSTS = ['joyas-pk.herokuapp.com']
 
 
 # Application definition
@@ -128,9 +130,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 
@@ -140,6 +143,7 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS= True
 EMAIL_HOST_USER= 'maham123arooj@gmail.com'
 EMAIL_HOST_PASSWORD= 'ma00j03'
+
 
 
 # Default primary key field type
