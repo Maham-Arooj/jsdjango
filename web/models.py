@@ -1,6 +1,7 @@
 from django.db import models
-from datetime import datetime
 
+from django.utils import timezone
+today = timezone.now
 
 class Employee(models.Model):
     Name = models.CharField(max_length=30)
@@ -17,7 +18,7 @@ class Employee(models.Model):
     leaves_allows= models.CharField(max_length=30)
     Description= models.CharField(max_length=30)
     Remarks= models.CharField(max_length=30)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
 
     def __str__(self):
         return self.Name
@@ -32,7 +33,7 @@ class Personal_Data(models.Model):
     Gender= models.CharField(max_length=30)
     Material_Status= models.CharField(max_length=30)
     Employee=models.ForeignKey(Employee, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.CNIC
 
@@ -44,7 +45,7 @@ class Qualification(models.Model):
     Total_Marks= models.CharField(max_length=30)
     Obtain_Marks= models.CharField(max_length=30)
     Grade= models.CharField(max_length=30)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
     def __str__(self):
         return self.Years_of_Passing
@@ -56,7 +57,7 @@ class Previous_Experience(models.Model):
     Description= models.CharField(max_length=30)
     Duty_Start_time= models.TimeField((""), auto_now=False, auto_now_add=False)
     Duty_End_time= models.TimeField((""), auto_now=False, auto_now_add=False)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -69,7 +70,7 @@ class Skills(models.Model):
     Certification= models.CharField(max_length=30)
     Duty_Start_time= models.TimeField((""), auto_now=False, auto_now_add=False)
     Duty_End_time= models.TimeField((""), auto_now=False, auto_now_add=False)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
     def __str__(self):
         return self.Skill_name
@@ -79,7 +80,7 @@ class Contact_Detail(models.Model):
     Mobile_Number1 = models.CharField(max_length=30)
     Mobile_Number2 = models.CharField(max_length=30)
     Email= models.EmailField()
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
     def __str__(self):
         return self.Email
@@ -88,7 +89,7 @@ class Product_Category(models.Model):
     Product_Name = models.CharField(max_length=30)
     Product_type = models.CharField(max_length=30)
     Description= models.CharField(max_length=30)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Product_Name
 
@@ -99,7 +100,7 @@ class Supplier(models.Model):
     Address= models.CharField(max_length=30)
     City= models.CharField(max_length=30)
     Country= models.CharField(max_length=30)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Name
 
@@ -110,7 +111,7 @@ class Product_Type(models.Model):
     Description= models.CharField(max_length=30)
     Product_Category=models.ForeignKey(Product_Category, on_delete=models.CASCADE)
     Supplier=models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Name
 
@@ -126,7 +127,7 @@ class Product(models.Model):
     Product_Category=models.ForeignKey(Product_Category, on_delete=models.CASCADE)
     Supplier=models.ForeignKey(Supplier, on_delete=models.CASCADE)
     Product_Type=models.ForeignKey(Product_Type, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Name
 
@@ -135,7 +136,7 @@ class S_Order_Booking(models.Model):
     Total_Bill= models.CharField(max_length=30)
     Supplier=models.ForeignKey(Supplier, on_delete=models.CASCADE)
     Employee=models.ForeignKey(Employee, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Invoice_Number
 
@@ -159,7 +160,7 @@ class S_Payment(models.Model):
     Payment_Amount= models.CharField(max_length=30)
     S_Order_Booking=models.ForeignKey(S_Order_Booking, on_delete=models.CASCADE)
     Employee=models.ForeignKey(Employee, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
 
     def __str__(self):
         return self.Payment_Amount
@@ -172,7 +173,7 @@ class S_Contact_Detail(models.Model):
     Postal_Code= models.CharField(max_length=10)
     Email= models.EmailField()
     Supplier=models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Email
 
@@ -182,7 +183,7 @@ class S_Contact_Person(models.Model):
     Mobile_Number2 = models.CharField(max_length=30)
     Email= models.EmailField()
     Supplier=models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Name
 
@@ -192,7 +193,7 @@ class Customer(models.Model):
     Mobile_Number = models.CharField(max_length=30)
     Whatsapp_Number = models.CharField(max_length=30)
     Email= models.EmailField()
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Name
     
@@ -200,7 +201,7 @@ class Customer(models.Model):
 class Corderbooking(models.Model):
     Invoice_Number = models.CharField(max_length=30)
     Customer=models.ForeignKey(Customer, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Invoice_Number
 
@@ -220,7 +221,7 @@ class C_Payment(models.Model):
     Payment_Medium = models.CharField(max_length=30)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
     Corderbooking= models.ForeignKey(Corderbooking, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Payment_Amount
 
@@ -229,7 +230,7 @@ class Daily_Expense(models.Model):
     Amount= models.CharField(max_length=30)
     Discription = models.CharField(max_length=300)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Expenditure_Type
 
@@ -239,7 +240,7 @@ class Current_Stock(models.Model):
     SKU = models.CharField(max_length=30)
     Employee= models.ForeignKey(Employee, on_delete=models.CASCADE)
     Product= models.ForeignKey(Product, on_delete=models.CASCADE)
-    Date_Time= models.DateTimeField(default=datetime.now())
+    Date_Time= models.DateTimeField(default=today)
     def __str__(self):
         return self.Unit_Price
 

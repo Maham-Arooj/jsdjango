@@ -24,6 +24,7 @@ from .views import (
 app_name = "main"
 
 urlpatterns = [
+    
     path('portfolio/', MenuListView.as_view(), name='home'),
     path('design/<slug>', views.menuDetail, name='design'),
     path('item_list/', views.item_list, name='item_list'),

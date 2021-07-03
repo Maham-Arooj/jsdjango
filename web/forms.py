@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models import fields
 from .models import *
 from django import forms
+from django import forms
 
 class addcus(forms.ModelForm):
     class Meta:
@@ -15,4 +16,7 @@ class UserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username' , 'email' ,'password1', 'password2']
+        
+
+
 

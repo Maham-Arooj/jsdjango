@@ -17,11 +17,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6t)c55+52s!!jq5_#6e4g!0m=y(eftrm&velz5v#0#4o-i8bi8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jsdjango-1.herokuapp.com','127.0.0.1']
 
-
+#status
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,13 +41,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     
 ]
 
@@ -120,13 +121,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
 
 MEDIA_URL ="images/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4',
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
@@ -140,12 +144,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS= True
-EMAIL_HOST_USER= 'maham123arooj@gmail.com'
-EMAIL_HOST_PASSWORD= 'ma00j03'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'maham123arooj@gmail.com'
+EMAIL_HOST_PASSWORD = 'vlkmwbfyyglzuswa'
 
 django_heroku.settings(locals())
 
