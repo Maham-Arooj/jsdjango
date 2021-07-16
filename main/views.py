@@ -12,7 +12,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import edituserprofile
 from django.http.response import HttpResponseRedirect
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import message, send_mail
 from django.shortcuts import render, redirect
 from django.conf import settings
 from .forms import SubscribeForm
@@ -36,6 +36,9 @@ from django.conf import settings
 from django.template.loader import render_to_string
 
 
+
+
+
 class MenuListView(ListView):
     model = Item
     template_name = 'main/home.html'
@@ -51,18 +54,7 @@ def menuDetail(request, slug):
     return render(request, 'main/design.html', context)
 
 def subscribe(request):
-    form = SubscribeForm()
-    if request.method == 'POST':
-        form = SubscribeForm(request.POST)
-        if form.is_valid():
-            subject = 'Maham testing Django'
-            message = 'Sending Email through Gmail'
-            recipient = form.cleaned_data.get('email')
-            send_mail(subject, 
-              message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
-            messages.success(request, 'Success!')
-            return redirect('subscribe')
-    return render(request, 'main/email_template.html', {'form': form})
+   return render(request, 'main/email_template.html')
 
 @login_required
 def add_reviews(request):
@@ -75,7 +67,7 @@ def add_reviews(request):
         reviews = Reviews(user=user, item=item, review=review, rslug=rslug)
         reviews.save()
         messages.success(request, "Thankyou for reviewing this product!!")
-    return redirect(f"/design/{item.slug}")
+    return redirect("/design/{item.slug}")
 
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
@@ -141,7 +133,7 @@ def get_cart_items(request):
 
 class CartDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = CartItems
-    success_url = '/cart'
+    success_url = '/main/cart'
 
     def test_func(self):
         cart = self.get_object()
@@ -174,6 +166,16 @@ def order_details(request):
         'count': count,
         'total_pieces': total_pieces
     }
+    
+    for item_active in items:
+        CartItems.objects.create(item= item_active.item, quantity= item_active.quantity, user=item_active.user)
+        message= 'item: '+str(item_active.item)  +  'Quantity: '+str(item_active.quantity)  + 'User: '+str(item_active.user)
+        subject= 'JOYAS Jewellery Shop'
+
+        recipient= request.user.email
+        send_mail(subject,
+            message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+        item_active.delete()
     return render(request, 'main/order_details.html', context)
 
 @login_required(login_url='/accounts/login/')

@@ -1,16 +1,87 @@
-<!doctype html>
-<html lang="en">
+{% load static %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Subscribe</title>
+<title>Joyas a Jewellery Category  Flat Bootstarp Resposive Website Template  | About :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Joyas Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href=" {% static 'main/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href=" {% static 'main/css/style.css' %}" rel='stylesheet' type='text/css' />	
+<script src="{% static 'main/js/jquery-1.11.1.min.js' %}"></script>
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Tangerine:400,700|Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
 </head>
 <body>
-<main>
-    <h1>Subscribe</h1>
-    {% if messages %}
+	<!--start-home-->
+	<div id="home" class="header">
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo">
+					<a href=" {% url 'index1' %}"><h1>Joya<span>s</span></h1></a>
+				</div>
+				<span class="menu"></span>
+				<div class="top-menu">
+					<ul>
+					<nav>
+						<li><a href=" {% url 'index1' %}">Home</a></li> 
+						<li><a class="active">Email</a></li>
+						 
+						<li><a href=" {% url 'main:home' %}">PORTFOLIO</a></li>
+						<li><a href=" {% url 'index1' %}">BLOG</a></li>	
+						<li><a href=" {% url 'contact' %}">Contact</a></li>
+					</nav>
+					</ul>
+				</div>
+				<!-- script for menu -->
+				<script>
+				$( "span.menu" ).click(function() {
+				  $( ".top-menu" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<!-- script for menu -->
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+	<div class="banner two">
+		<div class="container">	
+		<div class="bread-crumbs">
+				<ol class="breadcrumb">
+				  <li><a href=" {% url 'index1' %}">Home</a></li>
+				  <li class="active">Email</li>
+				  <li><a href=" {% url 'logout' %}">{{request.user}} Logout </a></li>
+					
+				</ol>
+		    </div>
+		</div>   
+	</div>
+	</div>
+</div>
+<!--about-->
+	<div class="about two">
+		<div class="container">
+				<div class="about-head">
+				   <h3>Email</h3>
+				  
+				   </div>	
+			 <div class="col-md-6 contact-top">
+          <div>
+            
+           {% if messages %}
         {% for message in messages %}
             <p style="color: red">{{ message }}</p>
         {% endfor %}
@@ -20,6 +91,92 @@
         {{ form }}
         <input type="submit" value="Submit">
     </form>
-</main>
+  
+				
+		</div>
+    </div>
+	<!--//about-->
+	</div>
+  <br>
+  <br>
+<!--footer-->
+		<div class="footer">
+			<div class="footer-grids">
+					<div class="container">
+					<div class="col-md-3 footer-grid">
+						<h4>Services</h4>
+						<ul>
+							<li><a href="{% url 'single' %}">Contact Customer Service</a></li>
+							<li><a href="{% url 'single'  %}">Free Delivery</a></li>
+							<li><a href="{% url 'single'  %}">View your Wishlist</a></li>
+							<li><a href="{% url 'single'  %}">Ring Size Guide</a></li>
+							<li><a href="{% url 'single'  %}">Returns</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+							<h4>Information</h4>
+						<ul>
+							<li><a href="{% url 'single' %}">Gift certificates</a></li>
+							<li><a href="{% url 'single' %}">Jewellery care guide</a></li>
+							<li><a href="{% url 'single' %}">International customers</a></li>
+							<li><a href="{% url 'single' %}">Wholesale enquires</a></li>
+							<li><a href="{% url 'single' %}">Returns</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>More details</h4>
+						<ul>
+							<li><a href="{% url 'about1'  %}">About us</a></li>
+							<li><a href="{% url 'about1' %}">Privacy Policy</a></li>
+							<li><a href="{% url 'about1' %}">Terms & Condition</a></li>
+							<li><a href="{% url 'about1' %}">Secure payment</a></li>
+							<li><a href="{% url 'contact' %}">Site map</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid contact-grid">
+						<h4>Contact us</h4>
+						<ul>
+
+							<li><span class="c-icon"> </span>Lahore PAKISTAN</li>
+							<li><span class="c-icon1"> </span><a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">mail@example.com</a></li>
+							<li><span class="c-icon2"> </span>756 gt globel Place</li>
+						</ul>
+						<ul class="social-icons">
+							<li><a href="https://www.facebook.com/"><span class="facebook"> </span></a></li>
+							<li><a href="https://twitter.com/?lang=en"><span class="twitter"> </span></a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+			<!--start-smoth-scrolling-->
+			<script type="text/javascript">
+								jQuery(document).ready(function($) {
+									$(".scroll").click(function(event){		
+										event.preventDefault();
+										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+									});
+								});
+								</script>
+							<!--start-smoth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+		<a href=" {% url 'index1' %}" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
 </body>
 </html>

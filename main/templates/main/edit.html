@@ -19,7 +19,7 @@
 
 <body id="page-top">
   <div id="wrapper">
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" backgroundcolor="pink" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'main:edit' %}">
         <div class="sidebar-brand-text mx-3">Welcome</div>
       </a>
@@ -30,7 +30,7 @@
         User Interface
       </div>
       
-      <li class="nav-item">
+      <li class="nav-item" background-color="red">
         <a class="nav-link" href="{% url 'main:edit_profile' %}">
           <i class="fa fa-plus"></i>
           <span>Edit Profile</span>
@@ -46,10 +46,10 @@
           <i class="fa fa-home"></i>
           <span>Home</span></a>
       </li>
-      <li class="nav-item ml-3 mb-3">
-        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+      <li class="nav-item ml-3 mb-3" color="pink">
+        <form class="logout-link" style=" color:pink " action="{% url 'accounts:logout' %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="mr-2">Logout</button>
+            <button type="submit" color="pink" class="read two">Logout</button>
         </form>
       </li>
       <hr class="sidebar-divider d-none d-md-block">
@@ -59,83 +59,7 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
           <h2 class="text-center">UserPage</h3>
         </nav>
-        <div class="container-fluid">
-
-          <div class="row">
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Earnings</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rs. {{ income }}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Delivered</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ completed_total }}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pending Orders</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ pending_total }}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xl-6 col-lg-6">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Categories Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-6 col-lg-6">
-              <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Categories Doughnut Chart</h6>
-                </div>
-                <div class="card-body">
-                    <canvas id="myAreaChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>

@@ -89,7 +89,7 @@ def contact(request):
                print(name,email,subject,message)
                ins= Contact(name=name ,email=email, subject=subject, message=message)
                ins.save()
-               return HttpResponse("<h1>Thanks For Contact</h1>")
+               
         return render(request, 'main/contact.html')
 @login_required(login_url='login') 
 def single(request):

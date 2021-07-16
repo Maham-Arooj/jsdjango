@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
     'crispy_forms',
+    'social_django',
+
     
 ]
 
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     
 ]
 
@@ -65,11 +68,24 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
                 
             ],
         },
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.github.GithubOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'aa.wsgi.application'
 
@@ -132,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+LOGIN_REDIRECT_URL = 'home'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -143,7 +159,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-
+#EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
