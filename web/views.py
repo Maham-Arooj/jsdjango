@@ -72,7 +72,7 @@ def loginPage(request):
                         
 
                 context = {}
-                return render(request, 'login', context)
+                return redirect('login')
  
 def logoutUser(request):
         logout(request)
