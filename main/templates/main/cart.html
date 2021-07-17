@@ -46,9 +46,19 @@
                         <li style="font-weight: bold; font-style: italic; font-family: sans-serif; " class="list-group-item list-group-item-dark text-center"><a class="btn btn-outline-warning text-dark" href="/">Continue Buying</a></li>
                       </ul>
                 </div>
-                
+                  {% if messages %}
+        {% for message in messages %}
+            <p style="color: red">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'subscribe' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Email">
+    </form>
             </div>
         </div>
     </div>
+
 </div>
 {% endblock content %}

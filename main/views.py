@@ -1,3 +1,4 @@
+from typing import ItemsView
 from aa.settings import EMAIL_HOST_USER
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item, CartItems, Reviews
@@ -53,8 +54,7 @@ def menuDetail(request, slug):
     }
     return render(request, 'main/design.html', context)
 
-def subscribe(request):
-   return render(request, 'main/email_template.html')
+
 
 @login_required
 def add_reviews(request):
@@ -164,9 +164,25 @@ def order_details(request):
         'cart_items':cart_items,
         'total': total,
         'count': count,
-        'total_pieces': total_pieces
+        'total_pieces': total_pieces,
     }
-    
+    return render(request, 'main/order_details.html', context)
+def subscribe(request):
+    items = CartItems.objects.filter(user=request.user, ordered=True,status="Active").order_by('-ordered_date')
+    cart_items = CartItems.objects.filter(user=request.user, ordered=True,status="Delivered").order_by('-ordered_date')
+    bill = items.aggregate(Sum('item__price'))
+    number = items.aggregate(Sum('quantity'))
+    pieces = items.aggregate(Sum('item__pieces'))
+    total = bill.get("item__price__sum")
+    count = number.get("quantity__sum")
+    total_pieces = pieces.get("item__pieces__sum")
+    context = {
+        'items':items,
+        'cart_items':cart_items,
+        'total': total,
+        'count': count,
+        'total_pieces': total_pieces,
+    }
     for item_active in items:
         CartItems.objects.create(item= item_active.item, quantity= item_active.quantity, user=item_active.user)
         message= 'item: '+str(item_active.item)  +  'Quantity: '+str(item_active.quantity)  + 'User: '+str(item_active.user)
@@ -176,7 +192,15 @@ def order_details(request):
         send_mail(subject,
             message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
         item_active.delete()
-    return render(request, 'main/order_details.html', context)
+    
+        
+
+    return render(request, 'main/order_details.html') 
+    
+    
+   
+    
+    
 
 @login_required(login_url='/accounts/login/')
 @admin_required
@@ -252,7 +276,7 @@ def changepassword(request):
           if fm.is_valid():
             fm.save()
           update_session_auth_hash(request, fm.user)
-          return HttpResponseRedirect('edit')
+          return HttpResponseRedirect('portfolio')
        else:
         fm = PasswordChangeForm(user=request.user)
         return render(request, 'main/changepassword.html', {'form':fm})
@@ -272,7 +296,7 @@ def edit_profile(request):
               messages.success(request, 'Profile Updated')
               fm.save()
              
-            return HttpResponseRedirect('edit')
+            return HttpResponseRedirect('portfolio')
         else:
           fm= edituserprofile(instance=request.user)
         return render(request, 'main/edit_profile.html', {'name':request.user, 'form':fm})

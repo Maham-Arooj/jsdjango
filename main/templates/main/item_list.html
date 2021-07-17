@@ -11,7 +11,7 @@
                         <td scope="col">Item No.</td>
                         <th scope="col">Title</th>
                         <th scope="col">Decription</th>
-                        <th scope="col">Instructions</th>
+                        
                         <th scope="col">Price</th>
                         <th scope="col">Pieces</th>
                         <th></th>
@@ -24,7 +24,7 @@
                         <td>{{ item.id }}</td>
                         <td>{{ item.title }} <span class="badge badge-{{ item.label_colour }}">{{ item.labels }}</span></td></td>
                         <td>{{ item.description }}</td>
-                        <td>{{ item.instructions }}</td>
+                        
                         <td>{{ item.price }}</td>
                         <td>{{ item.pieces }} pieces</td>
                         <td><a class="btn btn-success" href="{% url 'main:item-update' item.slug %}">Update</a></td>
