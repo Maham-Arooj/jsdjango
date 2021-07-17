@@ -72,7 +72,7 @@ def loginPage(request):
                         
 
                 context = {}
-                return render(request, 'main/login.html', context)
+                return render(request, 'login', context)
  
 def logoutUser(request):
         logout(request)
