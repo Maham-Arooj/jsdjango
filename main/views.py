@@ -1,4 +1,7 @@
+import datetime
 from typing import ItemsView
+
+from django.http import response
 from aa.settings import EMAIL_HOST_USER
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item, CartItems, Reviews
@@ -185,8 +188,9 @@ def subscribe(request):
     }
     for item_active in items:
         CartItems.objects.create(item= item_active.item, quantity= item_active.quantity, user=item_active.user)
-        message= 'item: '+str(item_active.item)  +  'Quantity: '+str(item_active.quantity)  + 'User: '+str(item_active.user)
+        message= 'Id:  '+str(item_active.id)  +  "\n" 'User: '+str(item_active.user) +  "\n" 'Item: '+str(item_active.item)  +  "\n"  'Quantity: '+str(item_active.quantity) 
         subject= 'JOYAS Jewellery Shop'
+        
 
         recipient= request.user.email
         send_mail(subject,
@@ -195,7 +199,7 @@ def subscribe(request):
     
         
 
-    return render(request, 'main/order_details.html') 
+    return render(request, 'main/cart.html') 
     
     
    
@@ -302,3 +306,7 @@ def edit_profile(request):
         return render(request, 'main/edit_profile.html', {'name':request.user, 'form':fm})
     else:
         return HttpResponseRedirect('accounts/login')
+
+
+    
+

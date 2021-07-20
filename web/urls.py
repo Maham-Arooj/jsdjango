@@ -17,8 +17,7 @@ urlpatterns = [
     path('contact/',views.contact , name= 'contact'),
     path('blog/',views.blog , name= 'index1'),
     path('shop/',views.shop , name= 'shop'),
-    path('login/',views.loginPage , name= 'login'),
-    path('logout/',views.logoutUser , name= 'logout'),
+   
     path('reg_form/',views.registerPage , name= 'reg_form'),
 
     path('oauth/', include('social_django.urls', namespace='social')), 

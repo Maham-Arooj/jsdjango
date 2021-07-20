@@ -19,23 +19,23 @@ from django.contrib.auth.decorators import login_required
 from django.views import View
 # Create your views here.
 
-@login_required(login_url='login') 
+
 def home(request): 
     data= indeximg.objects.all()
     return render(request, 'main/index1.html', {'data':data})
-@login_required(login_url='login') 
+
 def about(request):
     return render(request, 'main/about1.html')
-@login_required(login_url='login') 
+
 def services(request):
     return render(request, 'main/typography.html')
-@login_required(login_url='login') 
+
 def portfolio(request):
         return render(request, 'main/portfolio.html')
-@login_required(login_url='login') 
+
 def single(request):
         return render(request, 'main/single.html')
- 
+
 def registerPage(request):
         if request.user.is_authenticated:
                 return redirect('index1')
@@ -71,8 +71,8 @@ def loginPage(request):
                                 messages.info(request, 'Username OR Password is incorrect')
                         
 
-                context = {}
-                return redirect('login')
+        context = {}
+        return render(request, 'main/login.html', context)
  
 def logoutUser(request):
         logout(request)
@@ -123,7 +123,7 @@ def images_get(request):
 def image_get(request):
         data= indeximg.objects.all()
         return render (request, 'main/index1.html', {'data':data})
-@login_required(login_url='login') 
+
 def image(request):
         data= images.objects.all()
         return render (request, 'main/about1.html', {'data1':data})
